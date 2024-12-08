@@ -1,9 +1,11 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <map>
+#include <list>
 using namespace std;
 
-int sum_ascii(string s) {
+int gen_hash_index(string s) {
     int sum=0;
     for ( char c : s) {
         sum += (int)c;
@@ -18,13 +20,17 @@ int main() {
         return 1;
     }
 
+    // Create the std::map named hash_table. The key in the map is an int, the hash index. The value in a map is a std::list, which will contain the 12-character codes from the file that all map to that hash index.
+    map<int, list<string>> hash_table;
+
     int total;
     string line;
     while(getline(file,line)) {
-        total += sum_ascii(line);
+        // Receive its hash index that's returned from the function. Input that pair into the map (the hash index and the code string).
+        int index = gen_hash_index(line);
+        hash_table[index] = line; 
     }
     file.close();
-    cout << total;
     
     return 0;
 }
