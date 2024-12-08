@@ -1,20 +1,28 @@
 #include <iostream>
+#include <fstream>
 #include <string>
 using namespace std;
 
 int sum_ascii(string s) {
     int sum=0;
-    int position = 1;
     for ( char c : s) {
-        cout << position << ": " << (int)c << endl;
         sum += (int)c;
-        position++;
     }
-    cout << "sum of code " << s << ": " ;
     return sum;
 }
 
 int main() {
+    ifstream file("lab-37-data.txt");
+    if (file) {
+        cout << "Error open file" << endl;
+        return 1;
+    }
+
+    int total;
+    while() {
+        total += 
+    }
+
     cout << sum_ascii("536B9DFC93AF") << endl;
     cout << sum_ascii("1DA9D64D02A0") << endl;
     cout << sum_ascii("666D109AA22E") << endl;
