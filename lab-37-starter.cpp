@@ -23,7 +23,6 @@ int main() {
     // Create the std::map named hash_table. The key in the map is an int, the hash index. The value in a map is a std::list, which will contain the 12-character codes from the file that all map to that hash index.
     map<int, list<string>> hash_table;
 
-    int total;
     string line;
     while(getline(file,line)) {
         // Receive its hash index that's returned from the function. Input that pair into the map (the hash index and the code string).
@@ -32,15 +31,16 @@ int main() {
         hash_table[index].push_back(line); 
     }
     file.close();
-    for ( int i = 0; i < 100;) {
-        for ( auto a : hash_table) {
-            cout << "Index : " << a.first << " code : ";
-            for ( string code : a.second) {
-                cout << code << ", " ;
-            }
-            cout << endl;
-            i++;
+
+    int i=1;
+    for ( auto a : hash_table) {
+        if (i > 100) { break; }
+        cout << "Index : " << a.first << " Code : ";
+        for ( string code : a.second) {
+            cout << code << ", " ;
         }
+        cout << endl;
+        i++;
     }
     return 0;
 }
