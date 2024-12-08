@@ -28,14 +28,18 @@ int main() {
     while(getline(file,line)) {
         // Receive its hash index that's returned from the function. Input that pair into the map (the hash index and the code string).
         int index = gen_hash_index(line);
-        hash_table[index] = line; 
+        // list! need to use push back
+        hash_table[index].push_back(line); 
     }
     file.close();
-
-    for ( int i = 0; i < 100; i++) {
-        cout << "Index : " << hash_table.first << " code : ";
-        for ( string code : entry.second) {
-            cout << code << ", " ;
+    for ( int i = 0; i < 100;) {
+        for ( auto a : hash_table) {
+            cout << "Index : " << a.first << " code : ";
+            for ( string code : a.second) {
+                cout << code << ", " ;
+            }
+            cout << endl;
+            i++;
         }
     }
     return 0;
