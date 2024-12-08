@@ -31,7 +31,13 @@ int main() {
         hash_table[index] = line; 
     }
     file.close();
-    
+
+    for ( int i = 0; i < 100; i++) {
+        cout << "Index : " << hash_table.first << " code : ";
+        for ( string code : entry.second) {
+            cout << code << ", " ;
+        }
+    }
     return 0;
 }
 
