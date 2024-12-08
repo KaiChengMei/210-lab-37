@@ -19,14 +19,12 @@ int main() {
     }
 
     int total;
-    while() {
-        total += 
+    sting line;
+    while(getline(file,line)) {
+        total += sum_ascii(line);
     }
-
-    cout << sum_ascii("536B9DFC93AF") << endl;
-    cout << sum_ascii("1DA9D64D02A0") << endl;
-    cout << sum_ascii("666D109AA22E") << endl;
-    cout << sum_ascii("E1D2665B21EA") << endl;
+    file.close();
+    cout << total;
     
     return 0;
 }
