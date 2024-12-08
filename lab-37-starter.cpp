@@ -1,21 +1,18 @@
 #include <iostream>
+#include <string>
 using namespace std;
 
 void sum_ascii(string s) {
     int sum=0;
-    for ( int i = 0; i < s.size(); i++) {
-        sum += (int)s;
+    for ( char c : s) {
+        cout << (int)c << endl;
+        sum += (int)c;
     }
     return sum;
 }
 
 int main() {
-    char a = 'A';
-    cout << a << endl;
-    cout << (int) a << endl;
-    int b = 66;
-    cout << b << endl;
-    cout << (char) b << endl;
+    cout << sum_ascii("536B9DFC93AF");
     
 
     return 0;
