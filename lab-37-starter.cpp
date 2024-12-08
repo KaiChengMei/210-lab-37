@@ -13,13 +13,13 @@ int sum_ascii(string s) {
 
 int main() {
     ifstream file("lab-37-data.txt");
-    if (file) {
+    if (!file) {
         cout << "Error open file" << endl;
         return 1;
     }
 
     int total;
-    sting line;
+    string line;
     while(getline(file,line)) {
         total += sum_ascii(line);
     }
