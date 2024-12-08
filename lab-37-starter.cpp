@@ -32,7 +32,7 @@ int main() {
     }
     file.close();
 
-    int i=1;
+    int i = 1;
     for ( auto a : hash_table) {
         if (i > 100) { break; }
         cout << "Index : " << a.first << " Code : ";
