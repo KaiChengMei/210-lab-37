@@ -1,6 +1,13 @@
 #include <iostream>
 using namespace std;
 
+void sum_ascii(string s) {
+    int sum=0;
+    for ( int i = 0; i < s.size(); i++) {
+        sum += (int)s;
+    }
+    return sum;
+}
 
 int main() {
     char a = 'A';
