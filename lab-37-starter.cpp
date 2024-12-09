@@ -5,7 +5,7 @@
 #include <list>
 using namespace std;
 
-int gen_hash_index(string s) {
+int gen_hash_index(const string &s) {
     int sum=0;
     for ( char c : s) {
         sum += (int)c;
@@ -13,7 +13,7 @@ int gen_hash_index(string s) {
     return sum;
 }
 
-void display100(map<int, list<string>> hash_table) {
+void display100(const map<int, list<string>> &hash_table) {
     int i = 1;
     for ( auto a : hash_table) {
         if (i > 100) { break; }
@@ -26,7 +26,7 @@ void display100(map<int, list<string>> hash_table) {
     }
 }
 
-void search(map<int, list<string>> hash_table) {
+void search(const map<int, list<string>> &hash_table) {
     int key;
     cout << "Key to search: ";
     cin >> key;
@@ -43,7 +43,7 @@ void search(map<int, list<string>> hash_table) {
     cout << "Key not found" << endl;
 }
 
-void add(map<int, list<string>> hash_table) {
+void add(map<int, list<string>> &hash_table) {
     string code;
     cout << "Code to add: ";
     cin >> code;
@@ -53,12 +53,11 @@ void add(map<int, list<string>> hash_table) {
 }
 
 // remove key not code
-void remove(map<int, list<string>> hash_table) {
+void remove(map<int, list<string>> &hash_table) {
     int key;
     cout << "Key to remove: ";
     cin >> key;
     if (hash_table.erase(key)) {
-        hash_table.erase(key);
         cout << "Key removed." << endl;
     } else {
         cout << "Key not found." << endl;
@@ -66,7 +65,7 @@ void remove(map<int, list<string>> hash_table) {
 
 }
 
-void modify(map<int, list<string>> hash_table) {
+void modify(map<int, list<string>> &hash_table) {
     int key;
     string newcode;
     cout << "Key to modify: ";
@@ -74,15 +73,14 @@ void modify(map<int, list<string>> hash_table) {
     cout << "New code to replace: ";
     cin >> newcode;
 
-    for (auto a : hash_table) {
-        if (a.first == key) {
-            a.second.clear();
-            a.second.push_back(newcode);
-            cout << "Code modified." << endl;
-            return;
-        }
+    auto it =hash_table.find(key);
+    it->second.clear();
+    it->second.push_back(newcode);
+    cout << "Code modified." << endl;
+    if (it == hash_table.end()) {
+        cout << "Key not found." << endl;
     }
-    cout << "Key not found." << endl;
+
 }
 
 int main() {
@@ -130,6 +128,8 @@ int main() {
                 remove(hash_table);
                 break;
             case 5:
+                modify(hash_table);
+                break;
             case 6:
                 cout << "exiting...." << endl;
                 break;
