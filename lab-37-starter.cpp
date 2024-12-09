@@ -78,7 +78,10 @@ void modify(map<int, list<string>> &hash_table) {
     if (it != hash_table.end()) {
         cout << "New code to replace: ";
         cin >> newcode;
-
+        if (newcode.length() != 12) {
+            cout << "Error, please enter 12 characters code" << endl;
+            return;
+        }
         it->second.clear();
         it->second.push_back(newcode);
         cout << "Code modified." << endl;
@@ -109,7 +112,7 @@ int main() {
 
     int choice;
     do {
-        cout << "Menu" << endl;
+        cout << "---------------Menu-------------" << endl;
         cout << "[1] print the first 100 entries" << endl;
         cout << "[2] search for a key" << endl;
         cout << "[3] add a key" << endl;
