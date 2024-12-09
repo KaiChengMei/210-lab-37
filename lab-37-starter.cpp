@@ -13,6 +13,35 @@ int gen_hash_index(string s) {
     return sum;
 }
 
+void display100(map<int, list<string>> hash_table) {
+    int i = 1;
+    for ( auto a : hash_table) {
+        if (i > 100) { break; }
+        cout << "Index : " << a.first << " Code : ";
+        for ( string code : a.second) {
+            cout << code << ", " ;
+        }
+        cout << endl;
+        i++;
+    }
+}
+
+void search(map<int, list<string>> hash_table) {
+
+}
+
+void add(map<int, list<string>> hash_table) {
+
+}
+
+void remove(map<int, list<string>> hash_table) {
+
+}
+
+void modify(map<int, list<string>> hash_table) {
+
+}
+
 int main() {
     ifstream file("lab-37-data.txt");
     if (!file) {
@@ -32,15 +61,14 @@ int main() {
     }
     file.close();
 
-    int i = 1;
-    for ( auto a : hash_table) {
-        if (i > 100) { break; }
-        cout << "Index : " << a.first << " Code : ";
-        for ( string code : a.second) {
-            cout << code << ", " ;
-        }
-        cout << endl;
-        i++;
+    do {print the first 100 entries; search for a key; add a key; remove a key; modify a key; and exit.
+        cout << "Menu" << endl;
+        cout << "[1] print the first 100 entries" << endl;
+        cout << "[1] print the first 100 entries" << endl;
+        cout << "[1] print the first 100 entries" << endl;
+        cout << "[1] print the first 100 entries" << endl;
+        cout << "[1] print the first 100 entries" << endl;
+        cout << "[1] print the first 100 entries" << endl;
     }
     return 0;
 }
