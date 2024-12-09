@@ -47,7 +47,10 @@ void add(map<int, list<string>> &hash_table) {
     string code;
     cout << "Code to add: ";
     cin >> code;
-
+    if (code.length() != 12) {
+        cout << "Error, please enter 12 characters code" << endl;
+        return;
+    }
     hash_table[gen_hash_index(code)].push_back(code);
     cout << "Code added." << endl;
 }
@@ -70,14 +73,16 @@ void modify(map<int, list<string>> &hash_table) {
     string newcode;
     cout << "Key to modify: ";
     cin >> key;
-    cout << "New code to replace: ";
-    cin >> newcode;
 
     auto it =hash_table.find(key);
-    it->second.clear();
-    it->second.push_back(newcode);
-    cout << "Code modified." << endl;
-    if (it == hash_table.end()) {
+    if (it != hash_table.end()) {
+        cout << "New code to replace: ";
+        cin >> newcode;
+
+        it->second.clear();
+        it->second.push_back(newcode);
+        cout << "Code modified." << endl;
+    } else {
         cout << "Key not found." << endl;
     }
 
@@ -112,7 +117,6 @@ int main() {
         cout << "[5] modify a key" << endl;
         cout << "[6] exit" << endl;
         cin >> choice;
-        cout << endl;
 
         switch (choice) {
             case 1:
