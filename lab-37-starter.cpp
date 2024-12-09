@@ -27,20 +27,25 @@ void display100(map<int, list<string>> hash_table) {
 }
 
 void search(map<int, list<string>> hash_table) {
-
+    string code;
 }
 
 void add(map<int, list<string>> hash_table) {
     string code;
     cout << "Code to add: ";
-    con >> code;
+    cin >> code;
 
-    hash.table[gen_hash_index].push_back(code);
+    hash_table[gen_hash_index(code)].push_back(code);
     cout << "Code added" << endl;
 }
 
 void remove(map<int, list<string>> hash_table) {
+    string code;
+    cout << "Code to remove: ";
+    cin >> code;
 
+    hash_table[gen_hash_index(code)].erase(code);
+    cout << "Code removed" << endl;
 }
 
 void modify(map<int, list<string>> hash_table) {
@@ -75,11 +80,21 @@ int main() {
         cout << "[4] remove a key" << endl;
         cout << "[5] modify a key" << endl;
         cout << "[6] exit" << endl;
-        cin >> choie;
+        cin >> choice;
         cout << endl;
 
         switch (choice) {
             case 1:
+                display100(hash_table);
+                break;
+            case 2:
+                
+            case 3:
+                add(hash_table);
+                break;
+            case 4:
+                remove(hash_table);
+                break;
 
         }
     } while ( choice != 6);
