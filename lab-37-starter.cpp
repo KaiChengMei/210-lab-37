@@ -29,18 +29,18 @@ void display100(map<int, list<string>> hash_table) {
 void search(map<int, list<string>> hash_table) {
     int key;
     cout << "Key to search";
-    cin key;
+    cin >> key;
     for (auto a : hash_table) {
         if (a.first == key) {
-            cout << "Key: " << key << " Code: "
+            cout << "Key: " << key << " Code: ";
             for ( string code : a.second) {
                 cout << code << ", ";
             }
             cout << endl;
+            return;
         }
     }
-    
-
+    cout << "Key not found" << endl;
 }
 
 void add(map<int, list<string>> hash_table) {
@@ -57,8 +57,8 @@ void remove(map<int, list<string>> hash_table) {
     int key;
     cout << "Key to remove: ";
     cin >> key;
-    if (hash_table[key].erase) {
-        hash_table[key].erase;
+    if (hash_table.erase(key)) {
+        hash_table.erase(key);
         cout << "Key removed" << endl;
     } else {
         cout << "Key not found" << endl;
@@ -106,13 +106,19 @@ int main() {
                 display100(hash_table);
                 break;
             case 2:
-                
+                search(hash_table);
             case 3:
                 add(hash_table);
                 break;
             case 4:
                 remove(hash_table);
                 break;
+            case 5:
+            case 6:
+                cout << "exiting...." << endl;
+                break;
+            default:
+                cout << "Enter 1~6" << endl;
 
         }
     } while ( choice != 6);
