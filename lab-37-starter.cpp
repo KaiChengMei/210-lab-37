@@ -31,7 +31,12 @@ void search(map<int, list<string>> hash_table) {
 }
 
 void add(map<int, list<string>> hash_table) {
+    string code;
+    cout << "Code to add: ";
+    con >> code;
 
+    hash.table[gen_hash_index].push_back(code);
+    cout << "Code added" << endl;
 }
 
 void remove(map<int, list<string>> hash_table) {
@@ -61,15 +66,24 @@ int main() {
     }
     file.close();
 
-    do {print the first 100 entries; search for a key; add a key; remove a key; modify a key; and exit.
+    int choice;
+    do {
         cout << "Menu" << endl;
         cout << "[1] print the first 100 entries" << endl;
-        cout << "[1] print the first 100 entries" << endl;
-        cout << "[1] print the first 100 entries" << endl;
-        cout << "[1] print the first 100 entries" << endl;
-        cout << "[1] print the first 100 entries" << endl;
-        cout << "[1] print the first 100 entries" << endl;
-    }
+        cout << "[2] search for a key" << endl;
+        cout << "[3] add a key" << endl;
+        cout << "[4] remove a key" << endl;
+        cout << "[5] modify a key" << endl;
+        cout << "[6] exit" << endl;
+        cin >> choie;
+        cout << endl;
+
+        switch (choice) {
+            case 1:
+
+        }
+    } while ( choice != 6);
+
     return 0;
 }
 
