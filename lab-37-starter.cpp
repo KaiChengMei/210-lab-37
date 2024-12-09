@@ -27,7 +27,20 @@ void display100(map<int, list<string>> hash_table) {
 }
 
 void search(map<int, list<string>> hash_table) {
-    string code;
+    int key;
+    cout << "Key to search";
+    cin key;
+    for (auto a : hash_table) {
+        if (a.first == key) {
+            cout << "Key: " << key << " Code: "
+            for ( string code : a.second) {
+                cout << code << ", ";
+            }
+            cout << endl;
+        }
+    }
+    
+
 }
 
 void add(map<int, list<string>> hash_table) {
@@ -39,13 +52,18 @@ void add(map<int, list<string>> hash_table) {
     cout << "Code added" << endl;
 }
 
+// remove key not code
 void remove(map<int, list<string>> hash_table) {
-    string code;
-    cout << "Code to remove: ";
-    cin >> code;
+    int key;
+    cout << "Key to remove: ";
+    cin >> key;
+    if (hash_table[key].erase) {
+        hash_table[key].erase;
+        cout << "Key removed" << endl;
+    } else {
+        cout << "Key not found" << endl;
+    }
 
-    hash_table[gen_hash_index(code)].erase(code);
-    cout << "Code removed" << endl;
 }
 
 void modify(map<int, list<string>> hash_table) {
